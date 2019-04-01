@@ -14,7 +14,7 @@ function exercise1 (event) {
 		})
 	}
 
-	typeMessage ( `Welcome_to_the_hell`, 1 )
+	typeMessage ( `Welcome to the hell`, 1 )
 
 }
 

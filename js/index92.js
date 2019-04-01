@@ -1,19 +1,83 @@
 function exercise2 (event) {
 
-    var typeMessage = ( function ( velocity ) {
-        let container = document.getElementById ( "demo" ) ?
-            document.getElementById ( "demo" ) :
-            document.body.appendChild (
-                document.createElement ( "h3" )
-            )
-        container.style = `color: magenta;`
-        var index = 0
-        return function ( message ) {
-            typeof message == !String ? null : 
-                index < message.length ? 
-                    container.innerText += message.charAt(index) : null
-        }
-            
-      })( 1 )
+     var users = (
+        function ( list ) {
+            var users = []
+            for ( var user of list )
+                users.push ({
+                    name: user,
+                    present: false
+                })
 
-typeMessage ( `Welcome to the hell` )
+            return {
+                setUserPresent ( userName, present ) {
+                    let user = users.find(
+              item => item.name === userName
+            )
+            user ? user.present = present : null
+                },
+                showPresent () {
+                    console.log(
+              users.filter(
+                item => item.present
+              )
+            )
+            
+                },
+                showAbsent () {
+                    console.log(
+              users.filter(
+                item => !item.present
+              )
+            )
+                }
+            }
+        }
+    )( [ "Иван", "Дмитрий", "Степан", "Михаил" ] )   
+
+    users.showAbsent()
+
+    users.setUserPresent( "Иван", "+" )
+    users.setUserPresent( "Михаил", "присутствовал" )
+    users.setUserPresent( "Степан", true )
+
+    users.showPresent()
+
+
+    /*
+        var users = (
+    function ( list ) {
+        var users = []
+        for ( var user of list )
+            users.push ({
+                name: user,
+                present: false
+            })
+
+        return {
+            setUserPresent ( userName, present ) {
+                let user = users.find(
+          item => item.name === userName
+        )
+        user ? user.present = present : null
+            },
+            showPresent () {
+                console.log(
+          users.filter(item => item.present)
+            .map(user => user.name)
+        )
+        
+            },
+            showAbsent () {
+                console.log(
+          users.filter(item => !item.present)
+            .map(user => user.name)
+        )
+            }
+        }
+    })( [ "Иван", "Дмитрий", "Степан", "Михаил" ] )
+
+    users.showAbsent()
+    */
+
+}
