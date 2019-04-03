@@ -43,7 +43,7 @@
 				<div class=".show-code, container">
 										
 				</div>
-				<div class="result2"></div>
+				<!-- <div class="result2"></div> -->
 				<button name = "btn" class="btn" onclick = "exercise2()"> Show result in console </button>
 			</div>
 			<div class="exercise">
@@ -54,8 +54,23 @@
 				<p class = 'description'>После вызова функции:</p>
 				<img src="images/Screenshot_7.png" alt="screen" class="screen">
 				<p class = 'description'>в консоли страницы, где есть элементы с классом second-level-menu, у всех элементов этого класса цвет фона должен измениться на красный</p>
-				<div class="result3"></div>
-				<button name = "btn" class="btn" onclick = "exercise3()"> Show result in console</button>
+				<div class="result3">
+					<pre>
+	  let changeClass = ( classname, styleString ) =>
+	     Array.from(document.styleSheets).filter(
+    		sheet => !sheet.href
+  		 ).forEach(
+    		sheet => Array.from(sheet.cssRules)
+        		.filter( rule => rule.selectorText === classname
+        		).forEach(
+          			rule => rule.style[styleString.split(':')[0]] =  
+          				styleString.split(':')[1]
+	        	)
+	     )
+	  changeClass ( ".top", "background: red" )
+					</pre>
+				</div>
+				<a href="https://www.w3schools.com/html/html5_canvas.asp?01#02" target="_blank" class="btn" onclick = "exercise3()"> Click to test </a>
 			</div>
 		</div>
 </body>

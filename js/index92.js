@@ -10,26 +10,28 @@ function exercise2 (event) {
                 })
 
             return {
+
                 setUserPresent ( userName, present ) {
                     let user = users.find(
-              item => item.name === userName
-            )
-            user ? user.present = present : null
+                        item => item.name === userName
+                    )
+                    user ? user.present = present : null
                 },
+
                 showPresent () {
                     console.log(
-              users.filter(
-                item => item.present
-              )
-            )
-            
+                        users.filter(
+                            item => item.present
+                        )
+                    )
                 },
+
                 showAbsent () {
                     console.log(
-              users.filter(
-                item => !item.present
-              )
-            )
+                        users.filter(
+                            item => !item.present
+                        )
+                    )
                 }
             }
         }
@@ -57,22 +59,21 @@ function exercise2 (event) {
         return {
             setUserPresent ( userName, present ) {
                 let user = users.find(
-          item => item.name === userName
-        )
-        user ? user.present = present : null
+                    item => item.name === userName
+                )
+                user ? user.present = present : null
             },
             showPresent () {
                 console.log(
-          users.filter(item => item.present)
-            .map(user => user.name)
-        )
-        
+                    users.filter(item => item.present)
+                    .map(user => user.name)
+                )
             },
             showAbsent () {
                 console.log(
-          users.filter(item => !item.present)
-            .map(user => user.name)
-        )
+                    users.filter(item => !item.present)
+                    .map(user => user.name)
+                )
             }
         }
     })( [ "Иван", "Дмитрий", "Степан", "Михаил" ] )
