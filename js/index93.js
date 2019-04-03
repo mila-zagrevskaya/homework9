@@ -11,6 +11,6 @@ function exercise3 (event) {
           				styleString.split(':')[1]
         )
   	)
-	changeClass ( ".top", "background: red" )
+	changeClass ( ".result3", "background: red" )
 
 }
